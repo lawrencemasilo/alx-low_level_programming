@@ -4,10 +4,6 @@
 /**
  * main - Entry point
  *
- * Description: 'This program prints whether a random number is positive, negative or zero'
- *
- * @void: 'no type'
- *
  * Return: Always 0 (successful)
  */
 

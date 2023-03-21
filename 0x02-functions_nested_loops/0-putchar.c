@@ -1,11 +1,10 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
  * main - 'Entry point'
  * Description: 'This program outputs the following word "_putchar"'
  * @void: 'no type'
- * Return: Always 0 (successful)
+ * Return: 0 (success)
  */
 
 int main(void)

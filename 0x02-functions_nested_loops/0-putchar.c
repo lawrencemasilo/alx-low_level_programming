@@ -2,7 +2,7 @@
 
 /**
  * main - 'Entry point'
- * Description: 'This program outputs the following word "_putchar"'
+ * Description: 'This program outputs the following word -putchar'
  * @void: 'no type'
  * Return: 0 (success)
  */

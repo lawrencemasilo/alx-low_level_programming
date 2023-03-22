@@ -1,1 +1,1 @@
-This directory is about function tasks.
+This directory contains project files about functions.

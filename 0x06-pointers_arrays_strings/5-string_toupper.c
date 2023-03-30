@@ -2,18 +2,20 @@
 
 /**
  * string_toupper - This function changes lowercase charaters into uppercase
- * @str: string array argument
- * Return: returns the results str
+ * @s: string array argument
+ * Return: returns the results s
  */
-char *string_toupper(char *str)
+char *string_toupper(char *s)
 {
-	int i;
+	char *p = s;
 
-	for (i = 0; str[i] != '\0'; i++)
+	while (*p != '\0')
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
+		if (*p >= 'a' && *p <= 'z')
 		{
-			str[i] = str[i] - ('a' - 'A');
+			*p = *p - ('a' - 'A');
 		}
+		p++;
 	}
+	return (s);
 }

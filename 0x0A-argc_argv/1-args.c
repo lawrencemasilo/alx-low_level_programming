@@ -9,7 +9,16 @@
 
 int main(int argc, char *argv[])
 {
+	int num = argc - 1;
+
+	if (num == 0)
+	{
+		printf("%d\n", num);
+	}
+	else
+	{
+		printf("%d\n", num);
+	}
 	(void) argv;
-	printf("%d\n", argc);
 	return (0);
 }

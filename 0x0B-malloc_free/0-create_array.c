@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
-#include <limits.h>
 
 /**
  * create_array - creates an array

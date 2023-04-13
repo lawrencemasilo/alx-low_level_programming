@@ -12,7 +12,7 @@
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i, lens1 = 0, lens2 = 0;
+	unsigned int i, x, lens1 = 0, lens2 = 0;
 	char *con;
 
 	if (s1 == NULL)
@@ -44,10 +44,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		con[i] = s1[i];
 	}
-	for (i = 0; i <= n; i++)
+	for (x = 0; x <= n; x++)
 	{
-		con[i + lens1] = s2[i];
+		con[i + x] = s2[x];
 	}
-	con[lens1 + lens2 + 1] = '\0';
+	con[x + i] = '\0';
 	return (con);
 }

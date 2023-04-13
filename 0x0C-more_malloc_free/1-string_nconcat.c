@@ -45,7 +45,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	for (i = 0; i <= n; i++)
 	{
-		con[i + n] = s2[i];
+		con[i + len1] = s2[i];
 	}
 	con[len1 + len2 + 1] = '\0';
 	return (con);

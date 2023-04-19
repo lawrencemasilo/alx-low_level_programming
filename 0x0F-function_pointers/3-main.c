@@ -12,7 +12,7 @@
 int main(int argc, char *argv[])
 {
 	int num1, num2, equ;
-	int (*func)(int, int);
+	int (*op_func)(int, int);
 
 	if (argc != 4)
 	{
@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 	}
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[3]);
-	func = get_op_func(argv[2]);
+	op_func = get_op_func(argv[2]);
 	if (func == NULL)
 	{
 		printf("Error\n");
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(100);
 	}
-	equ = func(num1, num2);
+	equ = op_ func(num1, num2);
 	printf("%d\n", equ);
 	return (0);
 }

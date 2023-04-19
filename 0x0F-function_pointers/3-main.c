@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(100);
 	}
-	equ = op_ func(num1, num2);
+	equ = op_func(num1, num2);
 	printf("%d\n", equ);
 	return (0);
 }

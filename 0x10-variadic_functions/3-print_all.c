@@ -6,10 +6,10 @@
  */
 void print_all(const char * const format, ...)
 {
-	char c;
+	char c = '\0';
 	int i = 0;
-	float f;
-	char *s;
+	float f = 0.0;
+	char *s = NULL;
 
 	va_list args;
 
@@ -25,7 +25,7 @@ void print_all(const char * const format, ...)
 				break;
 			case 'i':
 				i = va_arg(args, int);
-				printf("%i", i);
+				printf("%d", i);
 				printf(", ");
 				break;
 			case 'f':

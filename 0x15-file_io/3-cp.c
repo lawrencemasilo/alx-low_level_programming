@@ -12,14 +12,14 @@ void _open_file(char **av)
 	fd1 = open(av[1], O_RDONLY);
 	if (fd1 == -1)
 	{
-		dprintf(STDERR_FILENO, "%s\n", "Error: Can't read from this file");
+		dprintf(STDERR_FILENO, "%s\n", "Error: Can't read from file");
 		exit(98);
 	}
 	fd2 = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR |
 			S_IRGRP | S_IWGRP | S_IROTH);
 	if (fd2 == -1)
 	{
-		dprintf(STDERR_FILENO, "%s\n", "Error: Can't read from this file");
+		dprintf(STDERR_FILENO, "%s\n", "Error: Can't read from file");
 		exit(99);
 	}
 	_cp_content(fd1, fd2);
@@ -39,14 +39,17 @@ void _cp_content(int file1, int file2)
 	readn = read(file1, buffer, 1024);
 	if (readn == -1)
 	{
-		dprintf(STDERR_FILENO, "%s\n", "Error: Can't read from file1");
+		dprintf(STDERR_FILENO, "%s\n", "Error: Can't read from file");
 		exit(98);
 	}
-	written = write(file2, buffer, readn);
-	if (written == -1)
+	if (readn > 0)
 	{
-		dprintf(STDERR_FILENO, "%s\n", "Error: Can't write to file2");
-		exit(99);
+		written = write(file2, buffer, readn);
+		if (written == -1)
+		{
+			dprintf(STDERR_FILENO, "%s\n", "Error: Can't write to file");
+			exit(99);
+		}
 	}
 	_close(file1, file2);
 }
@@ -64,13 +67,13 @@ void _close(int file1, int file2)
 	closed1 = close(file1);
 	if (closed1 == -1)
 	{
-		dprintf(STDERR_FILENO, "%s\n", "Error: Can't close file 1");
+		dprintf(STDERR_FILENO, "%s\n", "Error: Can't close fd");
 		exit(100);
 	}
 	closed2 = close(file2);
 	if (closed2 == -1)
 	{
-		dprintf(STDERR_FILENO, "%s\n", "Error: Can't close file 2");
+		dprintf(STDERR_FILENO, "%s\n", "Error: Can't close fd");
 		exit(100);
 	}
 }

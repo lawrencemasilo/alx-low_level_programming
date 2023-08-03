@@ -8,7 +8,7 @@
 void print_binary(unsigned long int n)
 {
 	int shift = (sizeof(unsigned long int) * 8) - 1;
-	int temp;
+	int temp = 0;
 
 	if (n == 0)
 	{

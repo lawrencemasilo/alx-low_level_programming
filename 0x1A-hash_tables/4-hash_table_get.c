@@ -17,10 +17,11 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	hash = hash_djb2((const unsigned char *)key);
 	index = hash % ht->size;
 	pair = ht->array[index];
-	if (pair != NULL)
+	while (pair != NULL)
 	{
 		if (strcmp(pair->key, key) == 0)
 			return (pair->value);
+		pair = pair->next;
 	}
 	return (NULL);
 }

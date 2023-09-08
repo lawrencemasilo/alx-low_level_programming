@@ -59,6 +59,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			is_same = strcmp(current->key, key);
 			if (is_same == 0)
 			{
+				free(current->value);
 				current->value = strdup(value);
 				if (current->value == NULL)
 					return (0);

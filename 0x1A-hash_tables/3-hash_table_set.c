@@ -17,10 +17,17 @@ hash_node_t *add_node(const char *key, const char *value)
 			return (NULL);
 		node->key = strdup(key);
 		if (node->key == NULL)
+		{
+			free(new_node);
 			return (NULL);
+		}
 		node->value = strdup(value);
 		if (node->value == NULL)
+		{
+			free(new_node->key);
+			free(new_node);
 			return (NULL);
+		}
 		node->next = NULL;
 		return (node);
 	}
@@ -59,6 +66,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			is_same = strcmp(current->key, key);
 			if (is_same == 0)
 			{
+				free(current->value);
 				current->value = strdup(value);
 				if (current->value != NULL)
 					return (1);

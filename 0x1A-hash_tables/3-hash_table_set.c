@@ -18,14 +18,14 @@ hash_node_t *add_node(const char *key, const char *value)
 		node->key = strdup(key);
 		if (node->key == NULL)
 		{
-			free(new_node);
+			free(node);
 			return (NULL);
 		}
 		node->value = strdup(value);
 		if (node->value == NULL)
 		{
-			free(new_node->key);
-			free(new_node);
+			free(node->key);
+			free(node);
 			return (NULL);
 		}
 		node->next = NULL;

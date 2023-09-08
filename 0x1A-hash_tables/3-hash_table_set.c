@@ -38,12 +38,12 @@ hash_node_t *add_node(const char *key, const char *value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *current, *node;
-	unsigned long int index, hash, is_same;
+	unsigned long int index, hash;
 
 	if (key == NULL || ht == NULL || *key == '\0')
 		return (0);
 
-	hash = hash_djb2((const unsigned char *)key);
+	hash = hash_djb2((unsigned char *)key);
 	index = hash % ht->size;
 	current = ht->array[index];
 	if (current == NULL)
@@ -52,12 +52,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		if (node == NULL)
 			return (0);
 	}
-	else
+	else if (current != NULL)
 	{
 		for (; current != NULL; )
 		{
-			is_same = strcmp(current->key, key);
-			if (is_same == 0)
+			if (strcmp(current->key, key) == 0)
 			{
 				current->value = strdup(value);
 				if (current->value == NULL)

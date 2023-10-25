@@ -8,14 +8,14 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) -o $(NAME) $(OBJ)
 
-%.o: %.c
-	$(CC) -c $<
-
 clean:
-	$(RM) $(OBJ) $(NAME)
+	$(RM) *~ $(NAME)
+
 oclean:
-	$(RM) $(NAME)
+	$(RM) $(OBJ)
+
 fclean:
-	clean occlean
+	clean oclean
+
 re:
 	oclean all
